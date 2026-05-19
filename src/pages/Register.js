@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
-import styles from './Register.module.css'
+import { logogreen } from '../Icons/Icons'
+import './Register.css'
 
 const pageVariants = {
   initial: { opacity: 0, y: 14 },
@@ -42,107 +43,105 @@ export default function Register() {
 
   return (
     <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
-    <Navbar />
-    <div className={styles.page}>
-      <div className={styles.card}>
-        <Link to="/" className={styles.logo}>
-          ♻️ <span>Recycle</span>
-        </Link>
-        <p className={styles.tagline}>Maak gratis een account aan</p>
+      <Navbar />
+      <div className="auth-page">
+        <div className="reg-card">
+          <Link to="/" className="auth-logo">
+            <img src={logogreen} alt="Tradr" />
+          </Link>
+          <h2>Registreren</h2>
 
-        <h2>Registreren</h2>
+          {error && <div className="auth-error">{error}</div>}
 
-        {error && <div className={styles.error}>{error}</div>}
-
-        <form onSubmit={handleSubmit}>
-          <div className={styles.group}>
-            <label htmlFor="name">Volledige naam</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Voer je naam in"
-              value={form.name}
-              onChange={handleChange}
-              autoComplete="name"
-              required
-            />
-          </div>
-
-          <div className={styles.group}>
-            <label htmlFor="email">E-mailadres</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Voer je e-mailadres in"
-              value={form.email}
-              onChange={handleChange}
-              autoComplete="email"
-              required
-            />
-          </div>
-
-          <div className={styles.group}>
-            <label htmlFor="phone">Telefoonnummer</label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="Voer je telefoonnummer in"
-              value={form.phone}
-              onChange={handleChange}
-              autoComplete="tel"
-            />
-          </div>
-
-          <div className={styles.row}>
-            <div className={styles.group}>
-              <label htmlFor="password">Wachtwoord</label>
+          <form onSubmit={handleSubmit}>
+            <div className="auth-group">
+              <label htmlFor="name">Volledige naam</label>
               <input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Min. 6 tekens"
-                value={form.password}
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Voer je naam in"
+                value={form.name}
                 onChange={handleChange}
-                autoComplete="new-password"
+                autoComplete="name"
                 required
               />
             </div>
 
-            <div className={styles.group}>
-              <label htmlFor="confirm">Herhaal wachtwoord</label>
+            <div className="auth-group">
+              <label htmlFor="email">E-mailadres</label>
               <input
-                id="confirm"
-                name="confirm"
-                type="password"
-                placeholder="Herhaal wachtwoord"
-                value={form.confirm}
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Voer je e-mailadres in"
+                value={form.email}
                 onChange={handleChange}
-                autoComplete="new-password"
+                autoComplete="email"
                 required
               />
             </div>
-          </div>
 
-          <p className={styles.terms}>
-            Door te registreren ga je akkoord met onze{' '}
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a href="#!" onClick={e => e.preventDefault()}>voorwaarden</a>.
-            Je ontvangt <strong>50 Recy's</strong> gratis bij aanmelding!
+            <div className="auth-group">
+              <label htmlFor="phone">Telefoonnummer</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="Voer je telefoonnummer in"
+                value={form.phone}
+                onChange={handleChange}
+                autoComplete="tel"
+              />
+            </div>
+
+            <div className="auth-row">
+              <div className="auth-group">
+                <label htmlFor="password">Wachtwoord</label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Min. 6 tekens"
+                  value={form.password}
+                  onChange={handleChange}
+                  autoComplete="new-password"
+                  required
+                />
+              </div>
+
+              <div className="auth-group">
+                <label htmlFor="confirm">Herhaal wachtwoord</label>
+                <input
+                  id="confirm"
+                  name="confirm"
+                  type="password"
+                  placeholder="Herhaal wachtwoord"
+                  value={form.confirm}
+                  onChange={handleChange}
+                  autoComplete="new-password"
+                  required
+                />
+              </div>
+            </div>
+
+            <p className="auth-terms">
+              Door te registreren ga je akkoord met onze{' '}
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a href="#!" onClick={e => e.preventDefault()}>voorwaarden</a>.
+              Je ontvangt <strong>50 Recy's</strong> gratis om meteen te kopen!
+            </p>
+
+            <button type="submit" className="auth-submit" disabled={loading}>
+              {loading ? 'Bezig...' : 'Account aanmaken'}
+            </button>
+          </form>
+
+          <p className="auth-login-link">
+            Al een account? <Link to="/login">Inloggen</Link>
           </p>
-
-          <button type="submit" className={styles.submit} disabled={loading}>
-            {loading ? 'Bezig...' : 'Account aanmaken'}
-          </button>
-        </form>
-
-        <p className={styles.login}>
-          Al een account? <Link to="/login">Inloggen</Link>
-        </p>
+        </div>
       </div>
-    </div>
     </motion.div>
   )
 }

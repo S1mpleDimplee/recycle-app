@@ -1,42 +1,43 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import styles from './Navbar.module.css'
+import { Link } from 'react-router-dom'
+import { logo } from '../Icons/Icons'
+import './Navbar.css'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const location = useLocation()
 
   function close() { setOpen(false) }
 
   return (
-    <nav className={styles.nav}>
-      <Link to="/" className={styles.logo} onClick={close}>
-        ♻️ <span>Recycle</span>
+    <nav className="nav">
+      <Link to="/" className="nav-logo" onClick={close}>
+        <img src={logo} alt="Tradr" />
       </Link>
 
-      <ul className={`${styles.links} ${open ? styles.linksOpen : ''}`}>
-        <li><a href="#features" onClick={close}>Over ons</a></li>
-        <li><a href="#features" onClick={close}>Hoe het werkt</a></li>
-        <li className={styles.mobileActions}>
-          <Link to="/register" className={styles.btnOutline} onClick={close}>Registreren</Link>
-          <Link to="/login"    className={styles.btnPrimary}  onClick={close}>Inloggen</Link>
+      <ul className={`nav-links${open ? ' nav-links-open' : ''}`}>
+        <li><Link to="/" onClick={close}>Thuis</Link></li>
+        <li><Link to="/over-tradr" onClick={close}>Over Tradr</Link></li>
+        <li><Link to="/aan-de-slag" onClick={close}>Aan de slag</Link></li>
+        <li className="nav-mobile-actions">
+          <Link to="/register" className="nav-btn-outline" onClick={close}>Registreren</Link>
+          <Link to="/login"    className="nav-btn-primary"  onClick={close}>Inloggen</Link>
         </li>
       </ul>
 
-      <div className={styles.navActions}>
-        <Link to="/register" className={styles.btnOutline}>Registreren</Link>
-        <Link to="/login"    className={styles.btnPrimary}>Inloggen</Link>
+      <div className="nav-actions">
+        <Link to="/register" className="nav-btn-outline">Registreren</Link>
+        <Link to="/login"    className="nav-btn-primary">Inloggen</Link>
       </div>
 
       <button
-        className={`${styles.hamburger} ${open ? styles.hamburgerOpen : ''}`}
+        className={`nav-hamburger${open ? ' nav-hamburger-open' : ''}`}
         onClick={() => setOpen(o => !o)}
         aria-label="Menu"
       >
         <span /><span /><span />
       </button>
 
-      {open && <div className={styles.overlay} onClick={close} />}
+      {open && <div className="nav-overlay" onClick={close} />}
     </nav>
   )
 }

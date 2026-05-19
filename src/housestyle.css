@@ -1,0 +1,59 @@
+/* ═══════════════════════════════════════
+   RESET
+═══════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
+:root {
+  /* Brand colours */
+  --green:       #2e7d32;
+  --green-hover: #388e3c;
+  --green-light: #4caf50;
+  --green-bg:    #e8f5e9;
+  --green-bg2:   #f1f8e9;
+
+  /* Neutrals */
+  --dark:   #1b1b1b;
+  --gray:   #6b6b6b;
+  --border: #e0e0e0;
+  --white:  #ffffff;
+
+  /* Effects */
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.09);
+
+  /* Typography */
+  --font: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* ═══════════════════════════════════════
+   GLOBAL
+═══════════════════════════════════════ */
+body {
+  font-family: var(--font);
+  color: var(--dark);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

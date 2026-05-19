@@ -3,6 +3,8 @@ import { AnimatePresence } from 'framer-motion'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import About from './pages/About'
+import HowItWorks from './pages/HowItWorks'
 
 export default function App() {
   const location = useLocation()
@@ -13,6 +15,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/over-tradr" element={<About />} />
+        <Route path="/aan-de-slag" element={<HowItWorks />} />
       </Routes>
     </AnimatePresence>
   )
