@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './HowItWorks.css'
 
 const pageVariants = {
@@ -13,29 +14,29 @@ const steps = [
   {
     number: '01',
     title: 'Maak een account aan',
-    desc: 'Registreer gratis en ontvang direct 50 Recy\'s als welkomstbonus.',
+    desc: "Registreer gratis en ontvang direct 50 Recy's als welkomstbonus.",
   },
   {
     number: '02',
     title: 'Zet spullen te koop',
-    desc: 'Foto, omschrijving, prijs in Recy\'s — en je artikel staat live.',
+    desc: "Foto, omschrijving, prijs in Recy's en je artikel staat live.",
   },
   {
     number: '03',
-    title: 'Verdien Recy\'s',
-    desc: 'Zodra iemand jouw artikel koopt, krijg jij de Recy\'s op je account.',
+    title: "Verdien Recy's",
+    desc: "Zodra iemand jouw artikel koopt, krijg jij de Recy's op je account.",
   },
   {
     number: '04',
     title: 'Koop van anderen',
-    desc: 'Gebruik je Recy\'s om artikelen van andere gebruikers te kopen. Geen echt geld nodig.',
+    desc: "Gebruik je Recy's om artikelen van andere gebruikers te kopen. Geen echt geld nodig.",
   },
 ]
 
 const faqs = [
-  { q: 'Wat zijn Recy\'s?', a: 'Recy\'s zijn de virtuele munt van Tradr. Je verdient ze door spullen te verkopen en geeft ze uit om spullen van anderen te kopen.' },
-  { q: 'Kan ik ook gewoon kopen zonder te verkopen?', a: 'Je start met 50 Recy\'s welkomstbonus. Daarna heb je Recy\'s nodig, dus verkoop eerst iets!' },
-  { q: 'Is Tradr gratis?', a: 'Ja, een account aanmaken en artikelen plaatsen is volledig gratis. Tradr vraagt geen commissie in euro\'s.' },
+  { q: "Wat zijn Recy's?",                      a: "Recy's zijn de virtuele munt van Tradr. Je verdient ze door spullen te verkopen en geeft ze uit om spullen van anderen te kopen." },
+  { q: 'Kan ik kopen zonder eerst te verkopen?', a: "Je start met 50 Recy's welkomstbonus. Daarna heb je Recy's nodig, dus verkoop eerst iets!" },
+  { q: 'Is Tradr gratis?',                       a: "Ja, een account aanmaken en artikelen plaatsen is volledig gratis. Tradr vraagt geen commissie in euro's." },
 ]
 
 export default function HowItWorks() {
@@ -72,11 +73,7 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      <section className="hiw-cta">
-        <h2>Klaar om te starten?</h2>
-        <p>Sluit je aan bij honderden gebruikers die al recyclen met Tradr.</p>
-        <Link to="/register" className="hiw-btn">Begin nu</Link>
-      </section>
+      <Footer />
     </motion.div>
   )
 }

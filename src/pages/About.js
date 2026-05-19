@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import './About.css'
 
 const pageVariants = {
@@ -8,7 +9,6 @@ const pageVariants = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } },
   exit:    { opacity: 0, y: -10, transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] } },
 }
-
 
 export default function About() {
   return (
@@ -33,7 +33,7 @@ export default function About() {
               Iedereen wint, en spullen krijgen een tweede leven.
             </p>
             <p>
-              Eenvoudig, eerlijk en duurzaam — dat is waar Tradr voor staat.
+              Eenvoudig, eerlijk en duurzaam dat is waar Tradr voor staat.
             </p>
           </div>
           <div className="about-mission-stats">
@@ -55,9 +55,11 @@ export default function About() {
 
       <section className="about-cta">
         <h2>Doe mee met Tradr</h2>
-        <p>Maak een gratis account aan en begin vandaag met recyclen.</p>
+        <p>Maak een gratis account aan en begin vandaag met handelen.</p>
         <Link to="/register" className="about-btn">Gratis registreren</Link>
       </section>
+
+      <Footer />
     </motion.div>
   )
 }

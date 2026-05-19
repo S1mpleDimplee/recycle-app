@@ -127,7 +127,6 @@ export default function Register() {
 
             <p className="auth-terms">
               Door te registreren ga je akkoord met onze{' '}
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#!" onClick={e => e.preventDefault()}>voorwaarden</a>.
               Je ontvangt <strong>50 Recy's</strong> gratis om meteen te kopen!
             </p>

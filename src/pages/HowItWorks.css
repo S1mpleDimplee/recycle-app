@@ -1,7 +1,7 @@
 .hiw-hero {
   text-align: center;
   padding: 5rem 2rem 4rem;
-  background: linear-gradient(135deg, var(--green-bg) 0%, var(--green-bg2) 100%);
+  background: #f5f7f5;
 }
 
 .hiw-hero h1 {
