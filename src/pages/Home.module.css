@@ -1,0 +1,140 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(135deg, var(--green-bg) 0%, var(--green-bg2) 100%);
+  flex: 1;
+  min-height: 88vh;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  max-width: 700px;
+  margin-bottom: 1.2rem;
+  color: var(--dark);
+}
+
+.accent {
+  color: var(--green);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--gray);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnPrimary {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  background: var(--green);
+  color: var(--white);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btnPrimary:hover {
+  background: var(--green-hover);
+}
+
+.btnOutline {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  border: 2px solid var(--green);
+  color: var(--green);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btnOutline:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* FEATURES */
+.features {
+  padding: 5rem 2.5rem;
+  text-align: center;
+  background: var(--white);
+}
+
+.features h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.subtitle {
+  color: var(--gray);
+  margin-bottom: 3rem;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--green-bg);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.icon {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--green);
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1.8rem;
+  background: var(--dark);
+  color: #aaa;
+  font-size: 0.85rem;
+}
