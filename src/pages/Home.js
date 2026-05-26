@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
-import styles from './Home.module.css'
+import Footer from '../components/Footer'
+import { bghome } from '../Icons/Icons'
+import './Home.css'
 
 const pageVariants = {
   initial: { opacity: 0, y: 14 },
@@ -10,10 +12,10 @@ const pageVariants = {
 }
 
 const features = [
-  { icon: '📊', title: 'Overzicht', desc: 'Bekijk in één oogopslag de recyclingvoortgang per locatie of gebruiker.' },
-  { icon: '♻️', title: 'Beheer', desc: 'Voeg materialen, inzamelpunten en gegevens eenvoudig toe en bewerk ze.' },
-  { icon: '📋', title: 'Registratie', desc: 'Leg hoeveelheden en soorten afval nauwkeurig vast in het systeem.' },
-  { icon: '🔒', title: 'Veilig', desc: 'Rolgebaseerde toegang zodat iedereen alleen ziet wat voor hem relevant is.' },
+  { icon: '📦', title: 'Zet aan',      desc: "Zet spullen die je niet meer gebruikt te koop en verdien er direct Recy's mee." },
+  { icon: '🔍', title: 'Ontdek',       desc: "Blader door aanbiedingen van andere gebruikers en koop met je Recy's." },
+  { icon: '🪙', title: "Recy's",       desc: "Onze virtuele munt. Verdien ze door te verkopen, geef ze uit om te kopen." },
+  { icon: '♻️', title: 'Tweede leven', desc: 'Geef spullen een nieuw thuis in plaats van ze weg te gooien.' },
 ]
 
 export default function Home() {
@@ -21,28 +23,33 @@ export default function Home() {
     <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
       <Navbar />
 
-      <section className={styles.hero}>
-        <h1>
-          Slimmer recyclen,<br />
-          <span className={styles.accent}>samen voor een betere wereld</span>
-        </h1>
-        <p>
-          Recycle is het platform dat inzameling, verwerking en voortgang van
-          recycling inzichtelijk maakt voor iedereen. Eenvoudig, overzichtelijk en duurzaam.
-        </p>
-        <div className={styles.actions}>
-          <Link to="/register" className={styles.btnPrimary}>Gratis registreren</Link>
-          <a href="#features" className={styles.btnOutline}>Meer informatie</a>
+      <section className="home-hero">
+        <div className="home-hero-content">
+          <h1>
+            Verhandel spullen,
+            <span className="home-accent">verdien Recy's</span>
+          </h1>
+          <p>
+            Tradr is de Nederlandse marktplaats zonder echt geld. Verkoop wat je niet meer
+            gebruikt, verdien Recy's en koop iets moois van iemand anders.
+          </p>
+          <div className="home-actions">
+            <Link to="/register" className="home-btn-primary">Gratis registreren</Link>
+            <a href="#features" className="home-btn-outline">Meer informatie</a>
+          </div>
+        </div>
+        <div className="home-hero-image">
+          <img src={bghome} alt="Tradr illustratie" />
         </div>
       </section>
 
-      <section className={styles.features} id="features">
-        <h2>Wat biedt Recycle?</h2>
-        <p className={styles.subtitle}>Alles op één plek voor een overzichtelijk recyclingsysteem.</p>
-        <div className={styles.grid}>
+      <section className="home-features" id="features">
+        <h2>Wat biedt Tradr?</h2>
+        <p className="home-subtitle">Kopen en verkopen zonder echt geld zo werkt het bij ons.</p>
+        <div className="home-grid">
           {features.map((f) => (
-            <div key={f.title} className={styles.card}>
-              <div className={styles.icon}>{f.icon}</div>
+            <div key={f.title} className="home-card">
+              <div className="home-icon">{f.icon}</div>
               <h3>{f.title}</h3>
               <p>{f.desc}</p>
             </div>
@@ -50,9 +57,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className={styles.footer}>
-        <p>&copy; 2026 Recycle. Alle rechten voorbehouden.</p>
-      </footer>
+      <Footer />
     </motion.div>
   )
 }
