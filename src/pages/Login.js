@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { callApi } from '../api'
 import Navbar from '../components/Navbar'
-import styles from './Login.module.css'
+import { logogreen } from '../Icons/Icons'
+import './Login.css'
 
 const pageVariants = {
   initial: { opacity: 0, y: 14 },
@@ -44,62 +45,62 @@ export default function Login() {
 
   return (
     <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit">
-    <Navbar />
-    <div className={styles.page}>
-      <div className={styles.card}>
-        <Link to="/" className={styles.logo}>
-          ♻️ <span>Recycle</span>.
-        </Link>
-        <p className={styles.tagline}>Welkom terug!</p>
+      <Navbar />
+      <div className="auth-page">
+        <div className="auth-card">
+          <Link to="/" className="auth-logo">
+            <img src={logogreen} alt="Tradr" />
+          </Link>
+          <p className="auth-tagline">Welkom terug!</p>
 
-        <h2>Inloggen</h2>
+          <h2>Inloggen</h2>
 
-        {error && <div className={styles.error}>{error}</div>}
+          {error && <div className="auth-error">{error}</div>}
 
-        <form onSubmit={handleSubmit}>
-          <div className={styles.group}>
-            <label htmlFor="email">E-mailadres</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Voer je e-mailadres in"
-              value={form.email}
-              onChange={handleChange}
-              autoComplete="email"
-              required
-            />
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="auth-group">
+              <label htmlFor="email">E-mailadres</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Voer je e-mailadres in"
+                value={form.email}
+                onChange={handleChange}
+                autoComplete="email"
+                required
+              />
+            </div>
 
-          <div className={styles.group}>
-            <label htmlFor="password">Wachtwoord</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Voer je wachtwoord in"
-              value={form.password}
-              onChange={handleChange}
-              autoComplete="current-password"
-              required
-            />
-          </div>
+            <div className="auth-group">
+              <label htmlFor="password">Wachtwoord</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Voer je wachtwoord in"
+                value={form.password}
+                onChange={handleChange}
+                autoComplete="current-password"
+                required
+              />
+            </div>
 
-          <div className={styles.forgot}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a href="#!" onClick={e => e.preventDefault()}>Wachtwoord vergeten?</a>
-          </div>
+            <div className="auth-forgot">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <a href="#!" onClick={e => e.preventDefault()}>Wachtwoord vergeten?</a>
+            </div>
 
-          <button type="submit" className={styles.submit} disabled={loading}>
-            {loading ? 'Bezig...' : 'Inloggen'}
-          </button>
-        </form>
+            <button type="submit" className="auth-submit" disabled={loading}>
+              {loading ? 'Bezig...' : 'Inloggen'}
+            </button>
+          </form>
 
-        <p className={styles.register}>
-          Nog geen account? <Link to="/register">Registreren</Link>
-        </p>
+          <p className="auth-register-link">
+            Nog geen account? <Link to="/register">Registreren</Link>
+          </p>
+        </div>
       </div>
-    </div>
     </motion.div>
   )
 }
