@@ -3,29 +3,29 @@ import { useLocation, useNavigate, Outlet } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Sidebar from '../components/Sidebar'
 import DashboardTopbar from '../components/DashboardTopbar'
-import { mockUser, customerNavItems } from './dashboard/mockData'
+import { mockAdmin, adminNavItems } from './dashboard/mockData'
 import './Dashboard.css'
 
-export default function Dashboard() {
+export default function AdminDashboard() {
   const [sideOpen, setSideOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
 
-  const activeTab = location.pathname.split('/')[2] || 'overview'
-  const currentLabel = customerNavItems.find(n => n.id === activeTab)?.label ?? ''
+  const activeTab = location.pathname.split('/')[2] || 'stats'
+  const currentLabel = adminNavItems.find(n => n.id === activeTab)?.label ?? ''
 
   function handleTabChange(id) {
-    navigate(`/dashboard/${id}`)
+    navigate(`/admin/${id}`)
     setSideOpen(false)
   }
 
   return (
     <div className="db-root">
       <Sidebar
-        navItems={customerNavItems}
+        navItems={adminNavItems}
         activeTab={activeTab}
         onTabChange={handleTabChange}
-        user={mockUser}
+        user={mockAdmin}
         open={sideOpen}
         onClose={() => setSideOpen(false)}
         homeLink="/"
@@ -34,8 +34,9 @@ export default function Dashboard() {
       <div className="db-main">
         <DashboardTopbar
           title={currentLabel}
-          user={mockUser}
+          user={mockAdmin}
           onMenuClick={() => setSideOpen(o => !o)}
+          showRecys={false}
         />
 
         <div className="db-content">

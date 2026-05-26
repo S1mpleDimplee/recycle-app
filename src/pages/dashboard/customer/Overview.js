@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { recy } from '../../Icons/Icons'
-import { mockUser, mockListings, mockPurchases } from './mockData'
+import { recy } from '../../../Icons/Icons'
+import { mockUser, mockListings, mockPurchases } from '../mockData'
 
 const variants = {
   initial: { opacity: 0, y: 14 },
@@ -19,7 +19,7 @@ export default function Overview() {
 
         <div className="db-stats">
           <div className="db-stat-card db-stat-green">
-            <div className="db-stat-icon"><img src={recy} alt="recy" className="recy-icon recy-icon-lg" /></div>
+            <div className="db-stat-icon"><img src={recy} alt="" className="recy-icon recy-icon-lg" /></div>
             <div>
               <div className="db-stat-value">{mockUser.recys}</div>
               <div className="db-stat-label">Recy's saldo</div>

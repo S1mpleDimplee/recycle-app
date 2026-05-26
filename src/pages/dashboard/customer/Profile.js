@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { recy } from '../../Icons/Icons'
-import { mockUser, mockListings, mockPurchases } from './mockData'
+import { recy } from '../../../Icons/Icons'
+import { mockUser, mockListings, mockPurchases } from '../mockData'
 
 const variants = {
   initial: { opacity: 0, y: 14 },

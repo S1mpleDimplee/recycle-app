@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { recy } from '../../Icons/Icons'
-import { mockUser, categories } from './mockData'
+import { recy } from '../../../Icons/Icons'
+import { mockUser, categories } from '../mockData'
 
 const variants = {
   initial: { opacity: 0, y: 14 },
